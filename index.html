@@ -499,15 +499,23 @@ footer .ip{display:inline-block;margin-top:8px;color:var(--fg);font-weight:700;l
   document.body.prepend(sprite);
   const flagSVG=(k,w)=>`<svg class="flag" width="${w}" height="${(w*2/3).toFixed(1)}" viewBox="0 0 30 20" aria-hidden="true"><use href="#flag-${k}"/></svg>`;
   document.querySelectorAll('[data-flag]').forEach(el=>el.insertAdjacentHTML('afterbegin',flagSVG(el.dataset.flag,+(el.dataset.w||20))));
-  const mapFlag=(g,t,code,anchor)=>{
+  const mapFlags=[];
+  const placeFlag=(u,t,anchor)=>{
     const w=t.getComputedTextLength(), x=+t.getAttribute('x'), y=+t.getAttribute('y');
     const start=anchor==='middle'?x-w/2:anchor==='end'?x-w:x;
     const fw=24, fh=16, fx=start-fw-6, fy=y-fh+2;
-    const u=document.createElementNS(SVGNS,'use');
-    u.setAttribute('href','#flag-'+code);u.setAttribute('x',fx);u.setAttribute('y',fy);u.setAttribute('width',fw);u.setAttribute('height',fh);u.setAttribute('class','mflag');
+    u.setAttribute('x',fx);u.setAttribute('y',fy);u.setAttribute('width',fw);u.setAttribute('height',fh);
     u.style.transformOrigin=`${fx+fw/2}px ${fy+fh/2}px`;
-    g.appendChild(u);
   };
+  const mapFlag=(g,t,code,anchor)=>{
+    const u=document.createElementNS(SVGNS,'use');
+    u.setAttribute('href','#flag-'+code);u.setAttribute('class','mflag');
+    placeFlag(u,t,anchor); g.appendChild(u); mapFlags.push([u,t,anchor]);
+  };
+  /* re-measure labels once web fonts load and on resize (font size changes on mobile) */
+  const refit=()=>mapFlags.forEach(([u,t,a])=>placeFlag(u,t,a));
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(refit);
+  addEventListener('resize',refit);
 
   /* world map routes */
   const NS='http://www.w3.org/2000/svg';
