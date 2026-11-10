@@ -67,7 +67,7 @@ nav.solid{background:rgba(10,10,11,.72);backdrop-filter:blur(14px);-webkit-backd
 .menu-open .mobile-menu{clip-path:circle(150% at calc(100% - 40px) 40px)}
 .mobile-menu a{font-family:var(--display);font-size:clamp(30px,9vw,48px);font-weight:600;opacity:0;transform:translateY(30px);transition:opacity .5s,transform .5s}
 .menu-open .mobile-menu a{opacity:1;transform:none}
-.mobile-menu a:nth-child(2){transition-delay:.05s}.mobile-menu a:nth-child(3){transition-delay:.1s}.mobile-menu a:nth-child(4){transition-delay:.15s}.mobile-menu a:nth-child(5){transition-delay:.2s}
+.mobile-menu a:nth-child(2){transition-delay:.05s}.mobile-menu a:nth-child(3){transition-delay:.1s}.mobile-menu a:nth-child(4){transition-delay:.15s}.mobile-menu a:nth-child(5){transition-delay:.2s}.mobile-menu a:nth-child(6){transition-delay:.25s}.mobile-menu a:nth-child(7){transition-delay:.3s}
 .mobile-menu .btn{margin-top:28px;align-self:flex-start;font-family:var(--body);font-size:16px}
 
 /* hero */
@@ -86,7 +86,7 @@ h1 .outline{color:var(--fg)}
 h1 .acc{color:var(--acc)}
 @keyframes up{to{transform:translateY(0)}}
 .lead{margin-top:28px;max-width:520px;font-size:clamp(16px,1.5vw,19px);color:#c9c5be}
-.cta-row{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+.cta-row{display:flex;gap:12px;margin-top:40px;flex-wrap:wrap}
 .fade{opacity:0;transform:translateY(24px);transition:opacity 1s,transform 1s cubic-bezier(.2,.8,.2,1)}
 .loaded .fade{opacity:1;transform:none}
 .loaded .d1{transition-delay:.7s}.loaded .d2{transition-delay:.85s}.loaded .d3{transition-delay:1s}.loaded .d4{transition-delay:1.15s}
@@ -236,6 +236,66 @@ footer .ip{display:inline-block;margin-top:8px;color:var(--fg);font-weight:700;l
 .fab.show{transform:scale(1)}
 .fab svg{width:26px;height:26px;fill:#000}
 
+
+/* tariffs */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.tab{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--fg);font:600 14px var(--body);cursor:pointer;transition:background .35s,border-color .35s,color .35s,transform .35s}
+.tab:hover{border-color:#3a3a40;transform:translateY(-2px)}
+.tab .flag{border-radius:2px}
+.tab.on{background:var(--acc);border-color:var(--acc);color:#000}
+.tpanel{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.7fr);gap:16px;align-items:start}
+.tcard{background:var(--bg2);border:1px solid var(--line);border-radius:22px;padding:28px;position:relative;overflow:hidden}
+.tcard h3{font-family:var(--display);font-size:clamp(24px,2.6vw,34px);font-weight:600;letter-spacing:-.02em;margin-bottom:22px;display:flex;align-items:center;gap:14px}
+.tcard h3 .flag{border-radius:4px}
+.kv{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 0;border-top:1px solid var(--line)}
+.kv span{color:var(--mute);font-size:14px}
+.kv b{font-family:var(--display);font-weight:600;font-size:18px;text-align:right;white-space:nowrap}
+.tnote{margin-top:16px;color:var(--mute);font-size:13px;line-height:1.5}
+.tnote b{color:var(--fg);font-weight:600}
+.trows{display:flex;flex-direction:column;gap:0}
+.trow{display:grid;grid-template-columns:1fr auto auto;gap:18px;align-items:center;padding:16px 0;border-top:1px solid var(--line);opacity:0;transform:translateX(20px)}
+.trow:first-of-type{border-top:0}
+.tpanel.anim .trow,.tpanel.anim .tcard{animation:rowIn .55s cubic-bezier(.2,.8,.2,1) forwards}
+.tpanel.anim .tcard{opacity:0;transform:translateY(16px)}
+@keyframes rowIn{to{opacity:1;transform:none}}
+.trow .city{font-weight:600;font-size:16px}
+.trow .days{color:var(--mute);font-size:14px;white-space:nowrap}
+.trow .price{font-family:var(--display);font-weight:600;font-size:clamp(18px,2vw,24px);color:var(--acc);white-space:nowrap;text-align:right;min-width:120px}
+.trow .tagx{display:inline-block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--acc);color:var(--acc);border-radius:999px;padding:2px 8px;margin-left:8px;vertical-align:middle}
+.conds{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+.cond{background:var(--bg2);border:1px solid var(--line);border-radius:22px;padding:28px;position:relative;transition:border-color .4s,transform .5s cubic-bezier(.2,.8,.2,1)}
+.cond:hover{border-color:#3a3a40;transform:translateY(-4px)}
+.cond.hl{border-color:var(--acc)}
+.cond-num{font-family:var(--display);color:var(--acc);font-size:13px;letter-spacing:.2em}
+.cond h3{font-family:var(--display);font-size:22px;font-weight:600;margin:14px 0 16px}
+.cond ol,.cond ul{padding-left:20px;display:flex;flex-direction:column;gap:10px;color:#c9c5be;font-size:15px}
+.cond li::marker{color:var(--acc)}
+.cond-note{margin-top:16px;font-size:13px;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+
+/* reviews */
+.reviews{overflow:hidden}
+.rv-rows{display:flex;flex-direction:column;gap:16px;margin:0 calc(var(--pad)*-1);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.rv-track{display:flex;gap:16px;width:max-content;animation:marq 70s linear infinite}
+.rv-row.rev .rv-track{animation-direction:reverse;animation-duration:80s}
+.rv-row:hover .rv-track{animation-play-state:paused}
+.rv{width:340px;flex-shrink:0;background:var(--bg2);border:1px solid var(--line);border-radius:22px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;transition:border-color .4s,transform .4s}
+.rv:hover{border-color:var(--acc);transform:translateY(-4px)}
+.rv q{quotes:none;font-size:15px;line-height:1.55;color:#e6e2dc}
+.rv q::before{content:"“";display:block;font-family:var(--display);font-size:44px;line-height:.6;color:var(--acc);margin-bottom:10px}
+.rv-who{display:flex;align-items:center;gap:12px}
+.rv-av{width:38px;height:38px;border-radius:50%;background:#1d1d21;border:1px solid var(--line);display:grid;place-items:center;font-family:var(--display);font-weight:600;font-size:14px;color:var(--acc);flex-shrink:0}
+.rv-who b{display:block;font-size:14px;font-weight:600}
+.rv-who small{color:var(--mute);font-size:12px}
+@media (max-width:1024px){.tpanel{grid-template-columns:1fr}.conds{grid-template-columns:1fr}}
+@media (max-width:760px){
+  .tab{padding:10px 14px;font-size:13px}
+  .tcard{padding:22px}
+  .trow{grid-template-columns:1fr auto;gap:4px 12px}
+  .trow .days{grid-column:1;grid-row:2}
+  .trow .price{grid-column:2;grid-row:1/3;min-width:0}
+  .rv{width:280px}
+}
+
 /* responsive */
 @media (max-width:1024px){
   .hero-top{grid-template-columns:1fr}
@@ -281,7 +341,8 @@ footer .ip{display:inline-block;margin-top:8px;color:var(--fg);font-weight:700;l
   <div class="links">
     <a href="#services">Услуги</a>
     <a href="#countries">Страны</a>
-    <a href="#how">Как заказать</a>
+    <a href="#tariffs">Тарифы</a>
+    <a href="#reviews">Отзывы</a>
     <a href="#contacts">Контакты</a>
   </div>
   <a class="btn btn-acc magnetic" href="https://t.me/BalenciagaPariz" target="_blank" rel="noopener"><span>Оформить заказ</span></a>
@@ -291,7 +352,9 @@ footer .ip{display:inline-block;margin-top:8px;color:var(--fg);font-weight:700;l
 <div class="mobile-menu" id="mobileMenu">
   <a href="#services">Услуги</a>
   <a href="#countries">Страны</a>
+  <a href="#tariffs">Тарифы</a>
   <a href="#how">Как заказать</a>
+  <a href="#reviews">Отзывы</a>
   <a href="#contacts">Контакты</a>
   <a class="btn btn-acc" href="https://t.me/BalenciagaPariz" target="_blank" rel="noopener"><span>Написать менеджеру</span></a>
 </div>
@@ -306,7 +369,6 @@ footer .ip{display:inline-block;margin-top:8px;color:var(--fg);font-weight:700;l
         <span class="row"><i class="outline" style="animation-delay:.12s">со всего</i></span>
         <span class="row"><i class="acc" style="animation-delay:.24s">мира</i></span>
       </h1>
-      <p class="lead fade d2">SECULAR</p>
       <div class="cta-row fade d3">
         <a class="btn btn-acc magnetic" href="https://t.me/BalenciagaPariz" target="_blank" rel="noopener"><span>Оформить заказ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
         <a class="btn btn-ghost magnetic" href="https://t.me/SecularRussia" target="_blank" rel="noopener"><span>Телеграм-канал <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
@@ -356,8 +418,8 @@ footer .ip{display:inline-block;margin-top:8px;color:var(--fg);font-weight:700;l
       <span class="tag">Основная услуга</span>
       <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 8H6"/><circle cx="10" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/></svg></div>
       <div>
-        <h3>Выкуп с зарубежных онлайн-площадок</h3>
-        <p>Заказываем брендовые вещи в интернет-магазинах и на маркетплейсах США, Китая, Южной Кореи, Японии и Евросоюза — там, где из России купить напрямую не получается.</p>
+        <h3>Выкуп из любого уголка мира</h3>
+        <p>Выкупаем вещи из Китая, Японии, США, Южной Кореи и Евросоюза — из постов в канале или по вашей ссылке — и доставляем прямо до вашего города.</p>
       </div>
     </article>
     <article class="svc reveal">
@@ -365,7 +427,7 @@ footer .ip{display:inline-block;margin-top:8px;color:var(--fg);font-weight:700;l
       <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg></div>
       <div>
         <h3>Доставка в Россию</h3>
-        <p>Привозим заказ в Россию, а при необходимости — в любую точку мира.</p>
+        <p>Вещь едет на склад в России, а оттуда — СДЭКом до вашего города.</p>
       </div>
     </article>
     <article class="svc reveal">
@@ -381,15 +443,15 @@ footer .ip{display:inline-block;margin-top:8px;color:var(--fg);font-weight:700;l
       <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></div>
       <div>
         <h3>Только оригинал</h3>
-        <p>Все вещи, представленные в канале, — оригинальные.</p>
+        <p>Если вещь из поста в канале окажется подделкой, вернём всю сумму вместе с доставкой (в течение 2 недель).</p>
       </div>
     </article>
     <article class="svc reveal">
-      <span class="tag">Сопровождение</span>
-      <div class="ico"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></div>
+      <span class="tag">Поиск</span>
+      <div class="ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></div>
       <div>
-        <h3>Личный менеджер</h3>
-        <p>Заказ оформляется в Telegram через менеджера, который отвечает на вопросы и ведёт заказ до получения.</p>
+        <h3>Найдём любую вещь</h3>
+        <p>Пришлите менеджеру фото вещи, размер, бюджет и состояние — подберём варианты на разных маркетплейсах и предложим самый выгодный.</p>
       </div>
     </article>
   </div>
@@ -409,26 +471,86 @@ footer .ip{display:inline-block;margin-top:8px;color:var(--fg);font-weight:700;l
   <div class="countries" id="countryList"></div>
 </section>
 
+<!-- TARIFFS -->
+<section id="tariffs">
+  <div class="sec-head">
+    <div>
+      <span class="sec-num">03 — Тарифы</span>
+      <h2 class="split">Условия и тарифы</h2>
+    </div>
+    <p class="reveal">Курс, комиссия за выкуп и стоимость доставки по каждой стране. Курсы меняются — точный расчёт у менеджера.</p>
+  </div>
+  <div class="tabs reveal" id="tariffTabs" role="tablist"></div>
+  <div class="tpanel" id="tariffPanel"></div>
+
+  <div class="conds">
+    <article class="cond reveal">
+      <span class="cond-num">01</span>
+      <h3>Порядок оплаты</h3>
+      <ol>
+        <li>Оплата товара — из поста в канале или по вашей ссылке.</li>
+        <li>Оплата доставки, когда вещь поступит на склад и её взвесят. Цены в канале указаны без доставки.</li>
+        <li>При необходимости — доставка СДЭКом до вашего города, тоже за ваш счёт.</li>
+      </ol>
+      <p class="cond-note">Отказаться от оплаты доставки нельзя: пока доставка не оплачена, товар не отправляется.</p>
+    </article>
+    <article class="cond hl reveal">
+      <span class="cond-num">02</span>
+      <h3>Гарантии</h3>
+      <ul>
+        <li>Вещь из поста в канале оказалась подделкой — возвращаем всю сумму вместе с доставкой. Срок — 2 недели.</li>
+        <li>Легит-чеки принимаем только у Эстера.</li>
+        <li>Брак или несоответствие (заказ из канала или через поиск менеджера) — компенсация или возврат при видео распаковки. С начала видео должно быть видно, что упаковка не вскрыта; у новых вещей должны сохраниться бирки.</li>
+      </ul>
+    </article>
+    <article class="cond reveal">
+      <span class="cond-num">03</span>
+      <h3>Важно знать</h3>
+      <ul>
+        <li>За заказы по вашей ссылке не отвечаем за соответствие и оригинальность товара, а также за доставку: дополнительные расходы (например, на таможне) оплачивает покупатель.</li>
+        <li>Если по вашей ссылке товар с проверкой от площадки оказался неоригинальным, не в том состоянии или заказ отменён — возвращается стоимость товара без комиссии сервиса.</li>
+        <li>За повреждения при доставке по России не отвечаем.</li>
+        <li>Вы отвечаете за правильность данных для отправки.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
 <!-- HOW -->
 <section id="how">
   <div class="sec-head">
     <div>
-      <span class="sec-num">03 — Как заказать</span>
+      <span class="sec-num">04 — Как заказать</span>
       <h2 class="split">Четыре <span class="outline">шага</span></h2>
     </div>
   </div>
   <div class="steps reveal" id="steps">
     <div class="steps-line"><i></i></div>
-    <div class="step"><h4>Выберите вещь</h4><p>В <a href="https://t.me/SecularRussia" target="_blank" rel="noopener">канале SECULAR</a> или на зарубежной онлайн-площадке.</p></div>
-    <div class="step"><h4>Напишите менеджеру</h4><p>В Telegram: <a href="https://t.me/BalenciagaPariz" target="_blank" rel="noopener">@BalenciagaPariz</a>.</p></div>
-    <div class="step"><h4>Оформление и выкуп</h4><p>Менеджер подтвердит наличие, размер, стоимость и оформит выкуп.</p></div>
-    <div class="step"><h4>Получите заказ</h4><p>Вещь едет из-за рубежа к вам в Россию.</p></div>
+    <div class="step"><h4>Выберите вещь</h4><p>В <a href="https://t.me/SecularRussia" target="_blank" rel="noopener">канале SECULAR</a> или пришлите <a href="https://t.me/BalenciagaPariz" target="_blank" rel="noopener">@BalenciagaPariz</a> ссылку либо фото, размер, бюджет и состояние.</p></div>
+    <div class="step"><h4>Оплатите товар</h4><p>Менеджер выкупит вещь и отправит её на склад.</p></div>
+    <div class="step"><h4>Оплатите доставку</h4><p>Когда вещь поступит на склад и её взвесят, менеджер напишет сумму по тарифу.</p></div>
+    <div class="step"><h4>Получите заказ</h4><p>Со склада — СДЭКом до вашего города.</p></div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" class="reviews">
+  <div class="sec-head">
+    <div>
+      <span class="sec-num">05 — Отзывы</span>
+      <h2 class="split">Отзывы покупателей</h2>
+    </div>
+    <a class="btn btn-ghost magnetic reveal" href="https://vk.com/wall1079913477_1" target="_blank" rel="noopener"><span>Все отзывы во ВКонтакте <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+  </div>
+  <div class="rv-rows">
+    <div class="rv-row"><div class="rv-track" id="rv1"></div></div>
+    <div class="rv-row rev"><div class="rv-track" id="rv2"></div></div>
   </div>
 </section>
 
 <!-- CONTACTS -->
 <section id="contacts" class="contact">
-  <span class="sec-num">04 — Контакты</span>
+  <span class="sec-num">06 — Контакты</span>
   <h2 class="split">Готовы <span class="outline">заказать?</span></h2>
   <p class="lead reveal">Пишите менеджеру в Telegram, а новые позиции смотрите в канале.</p>
   <div class="cards">
@@ -466,9 +588,9 @@ footer .ip{display:inline-block;margin-top:8px;color:var(--fg);font-weight:700;l
   setTimeout(go, 3000);
 
   /* marquees */
-  const brands = ['BALENCIAGA','VETEMENTS','NUMBER (N)INE','HYSTERIC GLAMOUR','MAISON MARGIELA','SAINT LAURENT','PRADA','NIKE ACRONYM','NE-NET'];
+  const brands = ['BALENCIAGA','VETEMENTS','MAISON MARGIELA','PRADA','LOUIS VUITTON','RICK OWENS'];
   const tags = ['США','КИТАЙ','ЮЖНАЯ КОРЕЯ','ЯПОНИЯ','ЕВРОСОЮЗ','ДОСТАВКА В РОССИЮ','ТОЛЬКО ОРИГИНАЛ'];
-  const fill=(id,arr)=>{const t=document.getElementById(id);const html=arr.map(x=>`<span>${x}</span>`).join('');t.innerHTML=html+html};
+  const fill=(id,arr)=>{const t=document.getElementById(id);const html=arr.map(x=>`<span>${x}</span>`).join('');t.innerHTML=html+html+html+html};
   fill('m1',brands); fill('m2',tags);
 
   /* dotted world map: decode row runs (grid step 1.6° × K) */
@@ -575,6 +697,52 @@ footer .ip{display:inline-block;margin-top:8px;color:var(--fg);font-weight:700;l
     try{b.textContent=new Date().toLocaleTimeString('ru-RU',{timeZone:b.dataset.tz,hour:'2-digit',minute:'2-digit'})}catch(e){}
   });
   tick(); setInterval(tick,10000);
+
+  /* tariffs (из закреплённого сообщения канала) */
+  const tariffs=[
+    {f:'cn',name:'Китай',rate:'13 ₽ = 1 ¥',comm:'1 000 ₽',pct:'7%',to:'склада в городе доставки',from:'с момента отправки со склада в Китае',
+     rows:[['Москва','19–25 дней','699 ₽/кг'],['Москва','9–13 дней','890 ₽/кг'],['Москва','1–5 дней','200 ¥/кг','экспресс'],['Санкт-Петербург','20–27 дней','760 ₽/кг'],['Санкт-Петербург','10–14 дней','910 ₽/кг'],['Минск','22–29 дней','30 BYN/кг'],['Минск','11–15 дней','35 BYN/кг'],['Владивосток','6–9 дней','620 ₽/кг'],['Новосибирск','9–12 дней','870 ₽/кг'],['Краснодар','9–12 дней','840 ₽/кг'],['Екатеринбург','9–12 дней','910 ₽/кг'],['Иркутск','15–25 дней','720 ₽/кг'],['Иркутск','9–12 дней','890 ₽/кг']]},
+    {f:'jp',name:'Япония',rate:'0,77 ₽ = 1 ¥',comm:'1 000 ₽',pct:'7%',to:'склада во Владивостоке',from:'общий срок с момента покупки',
+     rows:[['До Владивостока','3–4 недели','850 ₽/кг']]},
+    {f:'us',name:'США',rate:'87 ₽ = 1 $',comm:'1 000 ₽',pct:'7%',to:'склада в Перми',from:'с момента выкупа',
+     rows:[['До Перми','3–4 недели','1 800 ₽/кг']]},
+    {f:'kr',name:'Южная Корея',rate:'0,066 ₽ = 1 ₩',comm:'1 000 ₽',pct:'7%',to:'склада в Перми',from:'с момента выкупа',
+     rows:[['До Перми','2–3 недели','1 500 ₽/кг'],['До Перми','≈ 10 дней','2 800 ₽/кг','быстро']]},
+    {f:'eu',name:'Евросоюз',rate:'95 ₽ = 1 €',comm:'1 000 ₽',pct:'10%',to:'Перми',from:'с момента отправки посылки из Литвы',
+     rows:[['Из Литвы до Перми','19–25 дней','1 400 ₽/кг']]}
+  ];
+  const tTabs=document.getElementById('tariffTabs'), tPanel=document.getElementById('tariffPanel');
+  const showTariff=(i)=>{
+    const t=tariffs[i];
+    [...tTabs.children].forEach((b,k)=>{b.classList.toggle('on',k===i);b.setAttribute('aria-selected',k===i)});
+    tPanel.classList.remove('anim');
+    tPanel.innerHTML=`<div class="tcard"><h3>${flagSVG(t.f,40)}${t.name}</h3>
+      <div class="kv"><span>Курс</span><b>${t.rate}</b></div>
+      <div class="kv"><span>Комиссия за выкуп</span><b>${t.comm}</b></div>
+      <div class="kv"><span>Если выкуп дороже 20 000 ₽</span><b>${t.pct} от заказа</b></div>
+      <p class="tnote">Сроки — ${t.from} до ${t.to}. На некоторых сайтах возможна плата за доставку. Курс уточняйте: <b>@BalenciagaPariz</b></p></div>
+      <div class="tcard"><h3>Доставка</h3><div class="trows">${t.rows.map((r,k)=>`<div class="trow" style="animation-delay:${.08+k*.04}s"><span class="city">${r[0]}${r[3]?`<span class="tagx">${r[3]}</span>`:''}</span><span class="days">${r[1]}</span><span class="price">${r[2]}</span></div>`).join('')}</div></div>`;
+    void tPanel.offsetWidth; tPanel.classList.add('anim');
+  };
+  tariffs.forEach((t,i)=>{const b=document.createElement('button');b.className='tab';b.type='button';b.setAttribute('role','tab');b.innerHTML=flagSVG(t.f,22)+t.name;b.onclick=()=>showTariff(i);tTabs.appendChild(b)});
+  showTariff(0);
+
+  /* reviews (со страницы отзывов во ВКонтакте) */
+  const reviews=[
+    ['Владимир Е.','апрель 2026','Заказывал в первый раз, по полной предоплате. Очень советую продавца, всё объяснил, как что забрать, был на связи и помог с выбором.'],
+    ['Konstantin S.','июнь 2026','В этот раз заказал кроссовки Adidas Samba. С размером помогли определиться, всё точно подошло. Кроссовки получил довольно быстро. Не первый раз заказываю вещи здесь. Всё чётко, работают слаженно.'],
+    ['Михаил Л.','май 2026','Не первый раз закупаюсь у данного продавца, кроссовки пришли вовремя, продавец всегда был на связи, отвечал на мои вопросы. Рекомендую!'],
+    ['Яна В.','июнь 2026','Всё супер, заказывала двое часов, пришли вовремя в отличном состоянии. Продавец помог с выбором, на все вопросы ответил, советую.'],
+    ['Ярослав К.','март 2026','Второй раз заказываю у него, всё быстро, чётко, приехало всё целое и невредимое. Очень приятный продавец.'],
+    ['Ольга Ч.','февраль 2026','Продавец супер! Ответственный, рекомендую. По запросу всё быстро нашёл и оформил доставку.'],
+    ['Егор Г.','сентябрь 2026','Работаем не первый раз, всегда решает проблему, если вдруг она появляется. Всё как заявлено, помогает и подсказывает с размером, рекомендую!'],
+    ['Данил И.','июнь 2026','Пришло всё быстро, дней за 12–13 до Перми. Всё чётко, буду дальше работать с ним.'],
+    ['Лев С.','февраль 2026','Отличный продавец — всё пришло вовремя и в отличном состоянии!'],
+    ['Ирина М.','апрель 2026','Всё нормально приехало, доставка чуть дольше, чем ожидалось, а так всё супер. Менеджер приятный.']
+  ];
+  const rvCard=([n,d,t])=>`<figure class="rv"><q>${t}</q><figcaption class="rv-who"><span class="rv-av">${n[0]}</span><span><b>${n}</b><small>ВКонтакте · ${d}</small></span></figcaption></figure>`;
+  const half=Math.ceil(reviews.length/2);
+  [['rv1',reviews.slice(0,half)],['rv2',reviews.slice(half)]].forEach(([id,arr])=>{const h=arr.map(rvCard).join('');document.getElementById(id).innerHTML=h+h});
 
   /* split headings into words */
   document.querySelectorAll('.split').forEach(h=>{
