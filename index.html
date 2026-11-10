@@ -67,7 +67,7 @@ nav.solid{background:rgba(10,10,11,.72);backdrop-filter:blur(14px);-webkit-backd
 .menu-open .mobile-menu{clip-path:circle(150% at calc(100% - 40px) 40px)}
 .mobile-menu a{font-family:var(--display);font-size:clamp(30px,9vw,48px);font-weight:600;opacity:0;transform:translateY(30px);transition:opacity .5s,transform .5s}
 .menu-open .mobile-menu a{opacity:1;transform:none}
-.mobile-menu a:nth-child(2){transition-delay:.05s}.mobile-menu a:nth-child(3){transition-delay:.1s}.mobile-menu a:nth-child(4){transition-delay:.15s}.mobile-menu a:nth-child(5){transition-delay:.2s}.mobile-menu a:nth-child(6){transition-delay:.25s}.mobile-menu a:nth-child(7){transition-delay:.3s}
+.mobile-menu a:nth-child(2){transition-delay:.05s}.mobile-menu a:nth-child(3){transition-delay:.1s}.mobile-menu a:nth-child(4){transition-delay:.15s}.mobile-menu a:nth-child(5){transition-delay:.2s}.mobile-menu a:nth-child(6){transition-delay:.25s}.mobile-menu a:nth-child(7){transition-delay:.3s}.mobile-menu a:nth-child(8){transition-delay:.35s}
 .mobile-menu .btn{margin-top:28px;align-self:flex-start;font-family:var(--body);font-size:16px}
 
 /* hero */
@@ -296,6 +296,33 @@ footer .ip{display:inline-block;margin-top:8px;color:var(--fg);font-weight:700;l
   .rv{width:280px}
 }
 
+
+/* markets */
+.mk-groups{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.mk-group:not(.wide) .mk-list{grid-template-columns:1fr}
+.mk-group{background:var(--bg2);border:1px solid var(--line);border-radius:22px;padding:26px}
+.mk-group.wide{grid-column:1/-1}
+.mk-gh{display:flex;align-items:center;gap:12px;font-family:var(--display);font-weight:600;font-size:20px;margin-bottom:18px}
+.mk-gh .flag{border-radius:3px}
+.mk-gh .globe{width:28px;height:28px;stroke:var(--acc);fill:none;stroke-width:1.6}
+.mk-gh small{font-family:var(--body);font-weight:500;font-size:13px;color:var(--mute);margin-left:auto}
+.mk-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.mk{display:flex;align-items:center;gap:14px;padding:12px 14px;border:1px solid var(--line);border-radius:16px;transition:border-color .35s,transform .35s cubic-bezier(.2,.8,.2,1),background .35s;opacity:0;transform:translateY(14px)}
+.mk-group.in .mk{animation:rowIn .6s cubic-bezier(.2,.8,.2,1) forwards}
+.mk:hover{border-color:var(--acc);background:#18181b;transform:translateY(-3px)}
+.mk-logo{width:44px;height:44px;border-radius:12px;background:#0d0d0f;border:1px solid #2c2c31;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:15px;color:var(--fg);letter-spacing:-.02em;flex-shrink:0;transition:background .35s,color .35s,border-color .35s}
+.mk:hover .mk-logo{background:var(--acc);color:#000;border-color:var(--acc)}
+.mk-logo img{width:28px;height:28px;object-fit:contain}
+.mk b{display:block;font-weight:700;font-size:15px}
+.mk small{color:var(--mute);font-size:12px}
+.mk-arr{margin-left:auto;width:16px;height:16px;stroke:var(--mute);fill:none;stroke-width:2;transition:transform .35s,stroke .35s}
+.mk:hover .mk-arr{transform:translate(2px,-2px);stroke:var(--acc)}
+.mk-note{margin-top:16px;border:1px solid var(--acc);border-radius:22px;padding:28px;display:flex;align-items:center;justify-content:space-between;gap:24px;background:linear-gradient(120deg,rgba(255,42,42,.12),transparent 60%)}
+.mk-note h3{font-family:var(--display);font-size:clamp(20px,2.4vw,28px);font-weight:600;margin-bottom:8px}
+.mk-note p{color:#c9c5be;max-width:620px}
+@media (max-width:1024px){.mk-groups{grid-template-columns:1fr}.mk-group:not(.wide) .mk-list{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}}
+@media (max-width:760px){.mk-group{padding:20px}.mk-list,.mk-group:not(.wide) .mk-list{grid-template-columns:1fr 1fr}.mk{padding:10px;gap:10px}.mk-logo{width:38px;height:38px;font-size:13px}.mk-arr{display:none}.mk b{font-size:14px}.mk-note{flex-direction:column;align-items:flex-start}}
+
 /* responsive */
 @media (max-width:1024px){
   .hero-top{grid-template-columns:1fr}
@@ -341,6 +368,7 @@ footer .ip{display:inline-block;margin-top:8px;color:var(--fg);font-weight:700;l
   <div class="links">
     <a href="#services">Услуги</a>
     <a href="#countries">Страны</a>
+    <a href="#markets">Площадки</a>
     <a href="#tariffs">Тарифы</a>
     <a href="#reviews">Отзывы</a>
     <a href="#contacts">Контакты</a>
@@ -352,6 +380,7 @@ footer .ip{display:inline-block;margin-top:8px;color:var(--fg);font-weight:700;l
 <div class="mobile-menu" id="mobileMenu">
   <a href="#services">Услуги</a>
   <a href="#countries">Страны</a>
+  <a href="#markets">Площадки</a>
   <a href="#tariffs">Тарифы</a>
   <a href="#how">Как заказать</a>
   <a href="#reviews">Отзывы</a>
@@ -472,11 +501,30 @@ footer .ip{display:inline-block;margin-top:8px;color:var(--fg);font-weight:700;l
   <div class="countries" id="countryList"></div>
 </section>
 
+<!-- MARKETS -->
+<section id="markets">
+  <div class="sec-head">
+    <div>
+      <span class="sec-num">03 — Площадки</span>
+      <h2 class="split">Популярные площадки</h2>
+    </div>
+    <p class="reveal">Самые часто используемые сайты для выкупа среди наших клиентов.</p>
+  </div>
+  <div class="mk-groups" id="mkGroups"></div>
+  <div class="mk-note reveal">
+    <div>
+      <h3>И это только малая часть</h3>
+      <p>Выкупить вещь и оформить доставку до России можно практически с любого сайта мира — по запросу. Пришлите ссылку менеджеру.</p>
+    </div>
+    <a class="btn btn-acc magnetic" href="https://t.me/BalenciagaPariz" target="_blank" rel="noopener"><span>Отправить ссылку <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+  </div>
+</section>
+
 <!-- TARIFFS -->
 <section id="tariffs">
   <div class="sec-head">
     <div>
-      <span class="sec-num">03 — Тарифы</span>
+      <span class="sec-num">04 — Тарифы</span>
       <h2 class="split">Условия и тарифы</h2>
     </div>
     <p class="reveal">Курс, комиссия за выкуп и стоимость доставки по каждой стране. Курсы меняются — точный расчёт у менеджера.</p>
@@ -521,7 +569,7 @@ footer .ip{display:inline-block;margin-top:8px;color:var(--fg);font-weight:700;l
 <section id="how">
   <div class="sec-head">
     <div>
-      <span class="sec-num">04 — Как заказать</span>
+      <span class="sec-num">05 — Как заказать</span>
       <h2 class="split">Четыре <span class="outline">шага</span></h2>
     </div>
   </div>
@@ -538,7 +586,7 @@ footer .ip{display:inline-block;margin-top:8px;color:var(--fg);font-weight:700;l
 <section id="reviews" class="reviews">
   <div class="sec-head">
     <div>
-      <span class="sec-num">05 — Отзывы</span>
+      <span class="sec-num">06 — Отзывы</span>
       <h2 class="split">Отзывы покупателей</h2>
     </div>
     <a class="btn btn-ghost magnetic reveal" href="https://vk.com/wall1079913477_1" target="_blank" rel="noopener"><span>Все отзывы во ВКонтакте <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
@@ -551,7 +599,7 @@ footer .ip{display:inline-block;margin-top:8px;color:var(--fg);font-weight:700;l
 
 <!-- CONTACTS -->
 <section id="contacts" class="contact">
-  <span class="sec-num">06 — Контакты</span>
+  <span class="sec-num">07 — Контакты</span>
   <h2 class="split">Готовы <span class="outline">заказать?</span></h2>
   <p class="lead reveal">Пишите менеджеру в Telegram, а новые позиции смотрите в канале.</p>
   <div class="cards">
@@ -698,6 +746,22 @@ footer .ip{display:inline-block;margin-top:8px;color:var(--fg);font-weight:700;l
     try{b.textContent=new Date().toLocaleTimeString('ru-RU',{timeZone:b.dataset.tz,hour:'2-digit',minute:'2-digit'})}catch(e){}
   });
   tick(); setInterval(tick,10000);
+
+  /* markets: популярные площадки для выкупа */
+  const markets=[
+    {t:'Международные',f:null,items:[['Grailed','grailed.com','G'],['Farfetch','farfetch.com','F'],['Depop','depop.com','D'],['eBay','ebay.com','e'],['Amazon','amazon.com','a'],['Vinted','vinted.com','V']]},
+    {t:'Китай',f:'cn',wide:false,items:[['Goofish','goofish.com','GF'],['Poizon','poizon.com','P'],['95分','95fenapp.com','95'],['Taobao','taobao.com','T']]},
+    {t:'Япония',f:'jp',items:[['Mercari','jp.mercari.com','M'],['2nd STREET','2ndstreet.jp','2nd'],['Yahoo! Аукционы','auctions.yahoo.co.jp','Y!']]},
+    {t:'Южная Корея',f:'kr',items:[['Bunjang','bunjang.co.kr','B'],['FruitsFamily','fruitsfamily.com','FF'],['KREAM','kream.co.kr','K']]},
+  ];
+  const globe='<svg class="globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>';
+  const arr='<svg class="mk-arr" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>';
+  const mkG=document.getElementById('mkGroups');
+  markets.forEach((g,gi)=>{
+    const el=document.createElement('div');el.className='mk-group reveal'+(g.f?'':' wide');
+    el.innerHTML=`<div class="mk-gh">${g.f?flagSVG(g.f,30):globe}${g.t}<small>${g.items.length} ${g.items.length>4?'площадок':'площадки'}</small></div><div class="mk-list">${g.items.map(([n,d,m],k)=>`<a class="mk" href="https://${d}" target="_blank" rel="noopener" style="animation-delay:${.1+k*.07}s"><span class="mk-logo" data-domain="${d}">${m}</span><span><b>${n}</b><small>${d}</small></span>${arr}</a>`).join('')}</div>`;
+    mkG.appendChild(el);
+  });
 
   /* tariffs (из закреплённого сообщения канала) */
   const tariffs=[
